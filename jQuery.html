@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <style>
+        .tip{
+            border: 1px;
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div id = "a">adiv</div>
+<div id = "b">bdiv</div>
+<ul>
+    <li name="jack" class="m n"></li>
+    <li name="john" class="n"></li>
+    <li></li>
+    <li name="mik"></li>
+</ul>
+<script>
+    $(function () {
+        $("li:...").addClass("tip");
+        $("li[name*=]").addClass("tip");
+        ${"li:first-child"}.addClass();
+        [].map.call($("input:checked"),)
+        $("#name").on('focus',(e)=>{
+            $(e.target).addClass('tip');
+        })
+        $("#show").animate({color:red},2000);
+
+        $.ajax({type:"GET",url:''})
+            .done(function (users) {
+                console.log(users);
+            }).fail(function (err) {
+
+        }).always(function () {
+
+        });
+        let opt = {type:"POST",url:''};
+        opt.contentType = "app../json";
+        opt.data=JSON.stringify({,,})
+        $.ajax(opt)
+            .done(function (user) {
+
+            });
+    })
+</script>
+</body>
+</html>
