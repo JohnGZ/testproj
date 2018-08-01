@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="base")
@@ -23,7 +24,7 @@ public class Base {
 	@GeneratedValue(generator="uuid")
 	private String id;
 	private String baseName;
-	@JsonIgnore
+	@JsonManagedReference
 	@OneToMany(mappedBy="base",cascade= {CascadeType.PERSIST,CascadeType.REMOVE})
 	private Set<Item> addrs = new HashSet<Item>();
 	
