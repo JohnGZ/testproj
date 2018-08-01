@@ -14,7 +14,7 @@ import pers.johngao.service.BaseManager;
 
 
 @RestController
-@RequestMapping(value="base")
+@RequestMapping(value="/base")
 public class BaseController {
 	@Autowired
 	private BaseManager manager;

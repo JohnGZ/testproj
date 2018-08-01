@@ -53,6 +53,7 @@ public class Base {
 		this.baseName = baseName;
 		this.addrs = addrs;
 	}
+
 	public Base() {
 		super();
 	}
