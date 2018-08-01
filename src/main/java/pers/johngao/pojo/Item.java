@@ -9,6 +9,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="item")
 public class Item {
@@ -18,7 +20,7 @@ public class Item {
 	private String id;
 	private String itemName;
 	private Integer itemNum;
-	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="b_id")
 	private Base base;

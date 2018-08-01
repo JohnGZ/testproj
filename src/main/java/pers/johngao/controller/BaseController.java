@@ -26,7 +26,7 @@ public class BaseController {
 	
 	@RequestMapping(method=RequestMethod.PUT)
 	public Base updateBase(@RequestBody Base b) {
-		
+
 		return manager.updateBase(b);
 	}
 	
