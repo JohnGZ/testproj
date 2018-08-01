@@ -15,7 +15,9 @@ public class ItemDaoImpl implements ItemDao{
 	@PersistenceContext(name="em")
 	private EntityManager manager;
 	@Override
-	public Item addItem(Item item) {
+	public Item addItem(Item item,String baseId) {
+		Base base = manager.getReference(Base.class, baseId);
+		item.setBase(base);
 		manager.persist(item);
 		return item;
 	}
@@ -34,11 +36,12 @@ public class ItemDaoImpl implements ItemDao{
 
 	@Override
 	public List<Item> findAllItem(String id) {
-		String jpql = "Select i from pers.johngao.pojo.Item i WHERE i.b_id = :id";
-		Query query = manager.createQuery(jpql);
-		query.setParameter("id", id);
-		List<Item> items= query.getResultList();
-		return items;
+		Base base = manager.getReference(Base.class, id);
+		String jpql = "Select i from pers.johngao.pojo.Item i WHERE i.base = :base";
+		
+		return manager.createQuery(jpql)
+				.setParameter("base", base)
+				.getResultList();
 	}
 
 }

@@ -6,7 +6,7 @@ import pers.johngao.pojo.Item;
 
 
 public interface ItemDao {
-	public Item addItem(Item i);
+	public Item addItem(Item i,String baseId);
 	public void delete(String id);
 	public Item update(Item i);
 	public List<Item> findAllItem(String id);

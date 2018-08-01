@@ -19,8 +19,8 @@ public class ItemController {
 	private ItemManager manager;
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public Item addItem(@RequestBody Item b) {
-		return manager.registItem(b);
+	public Item addItem(@RequestBody Item b,String baseId) {
+		return manager.registItem(b,baseId);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT)

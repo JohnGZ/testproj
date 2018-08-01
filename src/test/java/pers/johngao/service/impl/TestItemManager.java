@@ -2,7 +2,9 @@ package pers.johngao.service.impl;
 
 import java.util.List;
 
+
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -14,21 +16,25 @@ import pers.johngao.service.ItemManager;
 
 public class TestItemManager {
 	private static ApplicationContext context;
+	private ItemManager manager;
 	@BeforeClass
 	public static void init() {
 		context=new ClassPathXmlApplicationContext("applicationContext.xml");
 	}
+	@Before
+	public void start() {
+		manager = context.getBean(ItemManagerImpl.class);
+	}
 	
 	@Test
-	public void testRegistItem() {
-		ItemManager manager = context.getBean(ItemManagerImpl.class);
+	public void testRegistItem() throws Exception{
 		Item item = new Item();
 		item.setItemName("water");
 		item.setItemNum(20);
 		Base base = new Base();
-		base.setId("8a5e9d4064efe35b0164efe35dc20000");
+		//这里入库base
 		item.setBase(base);
-		Item item2 = manager.registItem(item);
+		Item item2 = manager.registItem(item,base.getId());
 		Assert.assertTrue(item2.getId()!=null);
 	}
 	

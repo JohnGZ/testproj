@@ -17,8 +17,8 @@ public class ItemManagerImpl implements ItemManager{
 	
 	@Transactional
 	@Override
-	public Item registItem(Item item) {
-		return itemDao.addItem(item);
+	public Item registItem(Item item,String baseId) {
+		return itemDao.addItem(item,baseId);
 	}
 
 	@Transactional
