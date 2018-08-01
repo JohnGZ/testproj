@@ -3,13 +3,13 @@ function BaseComponent($view,url) {
     let itemModel = null;
     let tempItemId = null;  //记录当前显示的item的base的id
     init();
-
+    alert(url+"base");
     function init() {
         $view.find("addBaseForm").on("submit",(e)=>{
             e.preventDefault();
             let obj = $(e.target).serializeObject();
             //  console.log(obj);
-            myAjax(url+"bases","POST",obj,(nc)=>{
+            myAjax(url+"base","POST",obj,(nc)=>{
                 baseModel.push(nc);
                 render();
             })
@@ -20,14 +20,15 @@ function BaseComponent($view,url) {
             e.preventDefault();
             let obj = $(e.target).serializeObject();
             //  console.log(obj);
-            myAjax(url+"items","POST",obj,(nc)=>{
+            myAjax(url+"item","POST",obj,(nc)=>{
                 itemModel.push(nc);
                 renderSub();
             })
         })
 
         //初始化加载base的内容，item的内容等待具体base被点击时才加载
-        myAjax(url+"bases","GET",null,(bases)=>{
+        myAjax(url+"base","GET",null,(bases)=>{
+        	alert(url+"base");
             baseModel = bases;
             render();
         })
@@ -45,7 +46,7 @@ function BaseComponent($view,url) {
                     .append($("<button>").text("删除")
                         .on("click",(e)=>{deleteBase(base)})))
                 .on("dblclick",(e)=>{                    //双击之后出发item数据获取、视图渲染
-                    myAjax(url+"items"+base.id,"GET",null,(items)=>{
+                    myAjax(url+"item/"+base.id,"GET",null,(items)=>{
                         itemModel = items;
                         tempItemId = base.id;
                         renderSub();
@@ -74,7 +75,7 @@ function BaseComponent($view,url) {
     }
 
     function deleteBase(base) {
-        myAjax(url+"bases"+base.id,"DELETE",null,(msg)=>{
+        myAjax(url+"base"+base.id,"DELETE",null,(msg)=>{
             if (msg.error){
                 alert("删除异常");
             }
@@ -95,5 +96,6 @@ function BaseComponent($view,url) {
 }
 
 $(function () {
-    BaseComponent($("#app"),"base/");
+	alert("http://localhost:9090/pers_johngao_20180731_base_item/" + "base");
+    BaseComponent($("#app"),"http://localhost:9090/pers_johngao_20180731_base_item/");
 })
