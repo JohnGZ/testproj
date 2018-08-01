@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <script src="../js/jquery.js"></script>
+    <script src="../js/base.item.util.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Base__Item</h1>
+    <form id="addBaseForm" action="#">
+       baseName: <input type="text" name="baseName"><input type="submit" value="提交">
+    </form>
+    <hr/>
+    <table id="baseList" border="1">
+        <thead>
+        <tr>
+            <th>base id</th>
+            <th>base name</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <hr/>
+    <table id="itemList" border="1">
+        <thead>
+        <tr>
+            <th>item id</th>
+            <th>item name</th>
+            <th>item num</th>
+            <th>base</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <hr/>
+    <form id="addItemForm" action="#">
+       ItemName: <input type="text" name="itemName">
+       ItemNum: <input type="text" name="itemNum">
+       Base: <select name="itemBase"></select>
+        <input type="submit" value="提交">
+    </form>
+    <hr/>
+</div>
+<script src="../js/base.item.js"></script>
+</body>
+</html>
